@@ -1,7 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
 
-function App() {
+const App = () => {
+  // useEffect(async () => {
+  //   await fetch('/api')
+  //     .then((res) => res)
+  //     .then((result) => {
+  //       return result.json();
+  //     })
+  //     .then((r) => {
+  //       console.log(r);
+  //     });
+  // }, []);
+
+  useEffect(async () => {
+    await fetch('/api')
+      .then((result) => {
+        return result.json();
+      })
+      .then((r) => {
+        console.log(r);
+      });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -20,6 +42,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
